@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+section#photo-container {
+    background-image: url("./images/raining_day.jpg");
+    width: 40rem;
+    height: 45rem;
+    border-radius:10%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#climate {
+    margin-bottom: 30rem;
+
+    width: 20rem;
+    height: 12rem;
+    background-color: white;
+    border-radius: 5%;
+
+    font-size: 5rem;
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#watch {
+
+    position: relative;
+    margin-bottom: -10rem;
+
+    width: 20rem;
+    height: 20rem;
+    background-color: white;
+    border-radius: 50%;
+
+    font-size: 5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    width: 15rem;
+    height: 2rem;
+    margin-bottom: 20rem;
+    position: absolute;
+}
