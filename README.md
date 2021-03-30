@@ -1,3 +1,3 @@
 # weather
 
-Implementação de um programa consumindo uma API de tempo.
+A web page that shows how is the weather, the hours, and a to-do list to improve your productivity.

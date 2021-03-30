@@ -8,10 +8,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center; 
+    background-image: url("./images/forest_rain.jpg");
 }
 
 section#photo-container {
-    background-image: url("./images/raining_day.jpg");
     width: 40rem;
     height: 45rem;
     border-radius:10%;
@@ -23,7 +23,7 @@ section#photo-container {
 
 div#climate {
     margin-bottom: 30rem;
-
+    background-image: url("./images/watch_wallpaper.jpg");
     width: 20rem;
     height: 12rem;
     background-color: white;
@@ -44,9 +44,9 @@ div#watch {
 
     width: 20rem;
     height: 20rem;
-    background-color: white;
+    background-image: url("./images/watch_wallpaper.jpg");
     border-radius: 50%;
-
+    border: 2px solid black;
     font-size: 5rem;
 
     display: flex;
@@ -54,9 +54,9 @@ div#watch {
     align-items: center;
 }
 
-input {
+/* input {
     width: 15rem;
     height: 2rem;
     margin-bottom: 20rem;
     position: absolute;
-}
+} */
