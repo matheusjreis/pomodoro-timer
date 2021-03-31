@@ -59,9 +59,11 @@ div#counter:hover {
     cursor: pointer;
 }
 
+/*To do list*/
+
 #todo-list-container {
     width: 20rem;
-    height: 40rem;  /*Cresce dinamicamente*/
+    height: 40rem; 
     background-color: #424242;  
 
     bottom: 1rem;
@@ -69,4 +71,29 @@ div#counter:hover {
     position: fixed;
 
     border-radius:0.8rem;
+}
+
+#item-adder {
+    width: 80%;
+    margin: 0.8rem 0.2rem 0.8rem 0.8rem;
+
+    border-radius: 0.4rem;
+
+    background-color: #757575;
+
+    text-align: center;
+}
+
+#adder-button {
+    width: 1.5rem;
+
+    margin-left: 0.2rem;
+
+    border-radius: 0.5rem;
+
+    background-color: #757575;
+}
+
+#adder-button:hover {
+    cursor: pointer;
 }
