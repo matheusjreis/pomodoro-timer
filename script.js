@@ -1,5 +1,5 @@
-console.log(process.env.API_KEY);
+process.env.API_KEY
 
-let a = document.getElementById('watch');
+// let a = document.getElementById('watch');
 
-a.innerHTML = "HELLO"
+// a.innerHTML = "HELLO"
