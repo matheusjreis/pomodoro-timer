@@ -4,15 +4,12 @@ const Timer = {
     startCounter(){
         Timer.currentTime = 60
         Timer.interval = setInterval(Timer.countdown,1000)
+    },stopCounter(){
+        Timer.currentTime = 0
+        clearInterval(Timer.interval)
     },countdown(){
         Timer.currentTime--
-        console.log(Timer.currentTime)
-    },
-    showWatch({minutes, seconds}) {
-        document.body.innerHTML = 
-        `<div id="counter" onclick="startCounter()">
-            ${minutes}:${seconds}            
-        </div>`;
+        $('#counter').text('0:'+Timer.currentTime);
     }
 }
 
