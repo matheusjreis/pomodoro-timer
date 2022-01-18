@@ -1,6 +1,8 @@
 import { Timer } from "./Timer.js";
 
-document.getElementById ("counter").addEventListener ("click", startStudy, false);
+$( document ).ready(function() {
+    document.getElementById ("counter").addEventListener ("click", startStudy, false);
+});
 
 function startStudy(){    
     Swal.fire({
