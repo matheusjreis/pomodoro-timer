@@ -1,3 +1,5 @@
 # Pomodoro Timer
 
-A web page that shows how is the weather, the hours, and a to-do list to improve your productivity using the pomodoro method.
+- Uma página web para me auxiliar nos meus estudos utilizando o método Pomodoro;
+
+- Consome uma API do unsplash para buscar imagens aleatórias para deixar a página com um ambiente mais harmonioso;
