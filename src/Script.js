@@ -2,13 +2,22 @@ import { Timer } from "./Timer.js";
 
 $( document ).ready(function() {
     let key_unsplash;
-
+    jsLoading(true);
     document.getElementById ("counter").addEventListener ("click", startStudy, false);
 
     readTextFile("../config/apiKeys.json", function(text){
         let data = JSON.parse(text);
                 
-        setBackgroundImage(data[0].key_api_unsplash);
+        // setBackgroundImage(data[0].key_api_unsplash);        
+        doSomething(data[0].key_api_unsplash)
+        .then(()=> {
+            console.log('sleep(7)')
+            sleep(7);            
+        })
+        .then(()=> {
+            console.log('jsLoading(false)')
+            jsLoading(false);
+        });
     });
 });
 
@@ -30,8 +39,11 @@ function readTextFile(file, callback) {
     rawFile.send(null);
 }
 
+// let doSomethingElse = function loadImage(url){
+//     $('body').css('background-image', 'url(' + url + ')');
+// }
 
-async function setBackgroundImage(key_api_unsplash){  
+let doSomething = async function setBackgroundImage(key_api_unsplash){  
     
     let photoUrl = 'https://api.unsplash.com//search/photos?query=nature&client_id='+key_api_unsplash;                
     await $.get({
@@ -39,8 +51,11 @@ async function setBackgroundImage(key_api_unsplash){
         url         :  photoUrl,                
         success: function(data){            
             let indexPhoto = getRandomIntInclusive(0, data.results.length - 1);    
-            let valorTag = $('#instagramArtist').html();
-            $('body').css('background-image', 'url(' + data.results[indexPhoto].urls.full + ')');         
+            let valorTag = $('#instagramArtist').html();            
+
+            $('body').css('background-image', 'url(' + data.results[indexPhoto].urls.full + ')');                                                     
+
+            console.log('troca papel');
             
             if(data.results[indexPhoto].user.instagram_username == null)
                 $('#instagramArtist').html(valorTag+'  Autor Desconhecido');
@@ -48,6 +63,15 @@ async function setBackgroundImage(key_api_unsplash){
                 $('#instagramArtist').html(valorTag+'  '+data.results[indexPhoto].user.instagram_username);
         }
     }); 
+}
+
+function sleep(seconds) {
+    let milisseconds = seconds*1000
+    const date = Date.now()
+    let currentDate
+    do{
+        currentDate = Date.now()
+    }while(currentDate - date < milisseconds)
 }
 
 function startStudy(){    
@@ -71,4 +95,18 @@ function startStudy(){
             )
         }
     })
+}
+
+
+function jsLoading(flag){
+    if(flag){
+        $('#loading').removeClass('d-none');
+        $('body').css('background-image' , 'none');
+        $('*').css('background-color' , 'black');
+        $('#counter').addClass('d-none');        
+    } else {
+        $('#loading').addClass('d-none');
+        $('#counter').removeClass('d-none');
+        $('*').css('background-color' , '');
+    }    
 }

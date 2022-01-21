@@ -21,7 +21,7 @@ body {
     /* align-items: center;  */
     /* background-image: url("./images/forest_rain.jpg"); */
     /* background-image: url("https://images.unsplash.com/photo-1640628423316-b9238484f131?crop=entropy&cs=srgb&fm=jpg&ixid=Mnw5ODI5M3wwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MjU0NjcwNQ&ixlib=rb-1.2.1&q=85"); */
-    background-size: cover;
+    background-size: cover;    
 }
 
 /* section#photo-container {
@@ -89,6 +89,57 @@ div#counter:hover {
     background-color: rgb(138, 43, 43);
     /* border: 3px solid white; */
 }
+
+
+
+/* Loading */
+
+@keyframes ldio-05y9ovx8d807 {
+    0%, 100% {
+      animation-timing-function: cubic-bezier(0.45,0,0.9,0.55)
+    }
+    0% {
+      transform: translate(0,0)
+    }
+    50% {
+      transform: translate(0,146.34px);
+      animation-timing-function: cubic-bezier(0,0.45,0.55,0.9);
+    }
+    100% {
+      transform: translate(0,0);
+    }
+  }
+  
+  .ldio-05y9ovx8d807 div {
+    position: absolute;
+    width: 70.46px;
+    height: 70.46px;
+    border-radius: 50%;
+    background: #e15b64 !important;
+    left: 100.27px;
+    top: 27.1px;
+    animation: ldio-05y9ovx8d807 1.282051282051282s linear infinite;
+  }
+  .loadingio-spinner-ball-pgemw8lti8 {
+    width: 271px;
+    height: 271px;
+    display: inline-block;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0);
+
+    margin: auto;
+  }
+
+  .ldio-05y9ovx8d807 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0; /* see note above */        
+  }
+
+  .ldio-05y9ovx8d807 div { box-sizing: content-box; }
 
 /* To do list*/
 
