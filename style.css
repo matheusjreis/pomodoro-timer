@@ -152,6 +152,22 @@ div#counter:hover {
   }
 /* To do list*/
 
+/* Media Queries */
+
+@media (max-width: 650px){
+  div#counter {
+    width: 10rem;
+    height: 10rem;
+
+    font-size: 2.5rem;
+  }
+
+  #title {
+    font-size: 30px;   
+  }
+
+}
+
 /* #todo-list-container {
     width: 20rem;
     height: 40rem; 

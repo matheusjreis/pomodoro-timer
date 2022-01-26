@@ -25,7 +25,7 @@ $( document ).ready(function() {
 });
 
 async function setWeather(key_api_weather, coordinates){    
-    let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=`+key_api_weather;
+    let weatherUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=`+key_api_weather;
 
     await $.get({
         type        : 'GET',
@@ -72,7 +72,7 @@ function readTextFile(file, callback) {
 
 let setBackgroundImage = async function setBackground(key_api_unsplash){      
 
-    let photoUrl = 'https://api.unsplash.com//search/photos?query=montain&client_id='+key_api_unsplash;                
+    let photoUrl = 'http://api.unsplash.com//search/photos?query=montain&client_id='+key_api_unsplash;                
 
     await $.get({
         type        : 'GET',
