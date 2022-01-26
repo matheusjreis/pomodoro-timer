@@ -141,6 +141,15 @@ div#counter:hover {
 
   .ldio-05y9ovx8d807 div { box-sizing: content-box; }
 
+  #weather :nth-child(n){
+    text-align: center;    
+  }
+
+  .temperature {
+    text-align: center;    
+    font-size: 18px;
+    font-weight: 500;
+  }
 /* To do list*/
 
 /* #todo-list-container {

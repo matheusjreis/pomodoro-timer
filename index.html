@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clima</title>
+    <title id="favicon-title">Pomodoro</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -12,11 +12,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hahmlet&display=swap" rel="stylesheet">    
 </head>
-<body class="container">
+<body class="container-fluid">
     <header class="row justify-content-start">        
+        <div class="col-1 ml-10" id="weather">
+            <div class="row temperature" id="city-name">
+                Cidade
+            </div>
+            <div class="row temperature" id="degrees">
+                0°
+            </div>
+        </div>
         <div class="col-12" id="title">
             Pomodoro Timer
-        </div>      
+        </div>              
     </header>
     <section class="row justify-content-start top-buffer">
         <div id="counter" class=""> Iniciar

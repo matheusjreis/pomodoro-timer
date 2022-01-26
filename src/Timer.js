@@ -39,6 +39,7 @@ const Timer = {
         minutes = Timer.currentTimeMinutes;
         seconds = Timer.currentTime;        
         
+        $('#favicon-title').text('Pomodoro - '+formatTime(minutes)+':'+formatTime(seconds));
         $('#counter').text(formatTime(minutes)+':'+formatTime(seconds));
     }
 }

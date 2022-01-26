@@ -1,23 +1,54 @@
 import { Timer } from "./Timer.js";
 
 $( document ).ready(function() {
-    let key_unsplash;
     jsLoading(true);
-    document.getElementById ("counter").addEventListener ("click", startStudy, false);
+
+    document.getElementById("counter").addEventListener("click", startStudy, false);
 
     readTextFile("../config/apiKeys.json", function(text){
         let data = JSON.parse(text);
-                
-        // setBackgroundImage(data[0].key_api_unsplash);        
-        doSomething(data[0].key_api_unsplash)
+        let latLong; 
+
+        setBackgroundImage(data[0].key_api_unsplash)
+        .then(()=> {            
+            sleep(3);            
+        }) 
+        .then(()=>{                
+            getLocation.then((value) => {                                
+                setWeather(data[1].key_api_weather, value);
+            });            
+        })         
         .then(()=> {
-            console.log('sleep(7)')
-            sleep(7);            
-        })
-        .then(()=> {
-            console.log('jsLoading(false)')
             jsLoading(false);
         });
+    });
+});
+
+async function setWeather(key_api_weather, coordinates){    
+    let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=`+key_api_weather;
+
+    await $.get({
+        type        : 'GET',
+        url         :  weatherUrl, 
+        dataType: "json", 
+        contentType: "application/x-www-form-urlencoded",                
+        success: function(data){                        
+            let degrees = data.main.temp.toString().split('.')[0];
+
+            $('#degrees').text(degrees + '°');
+            $("#city-name").text(data.name);                                    
+        }
+    }); 
+}
+
+
+let getLocation = new Promise(function(resolve, reject) {
+
+    navigator.geolocation.getCurrentPosition((position) => {
+        resolve({
+            lat : position.coords.latitude,
+            lon : position.coords.longitude,
+        }); 
     });
 });
 
@@ -39,13 +70,10 @@ function readTextFile(file, callback) {
     rawFile.send(null);
 }
 
-// let doSomethingElse = function loadImage(url){
-//     $('body').css('background-image', 'url(' + url + ')');
-// }
+let setBackgroundImage = async function setBackground(key_api_unsplash){      
 
-let doSomething = async function setBackgroundImage(key_api_unsplash){  
-    
-    let photoUrl = 'https://api.unsplash.com//search/photos?query=nature&client_id='+key_api_unsplash;                
+    let photoUrl = 'https://api.unsplash.com//search/photos?query=montain&client_id='+key_api_unsplash;                
+
     await $.get({
         type        : 'GET',
         url         :  photoUrl,                
@@ -98,7 +126,7 @@ function startStudy(){
 }
 
 
-function jsLoading(flag){
+function jsLoading(flag) {
     if(flag){
         $('#loading').removeClass('d-none');
         $('body').css('background-image' , 'none');
