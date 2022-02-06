@@ -10,4 +10,9 @@ function playNotificationSound() {
     audio.play();
 }
 
-export { formatTime, playNotificationSound };
+function playClickSound() {
+    const audio = new Audio('../notificationSounds/popSound.mp3');
+    audio.play();
+}
+
+export { formatTime, playNotificationSound, playClickSound };

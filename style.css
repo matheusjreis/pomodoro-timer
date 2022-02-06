@@ -49,16 +49,13 @@ body {
 } */
 
 div#counter {
-
     color: black;
     background-color: rgba(0, 0, 0, 0.1);
 
-    /* position: relative; */
-    /* margin-top: -10rem; */
-    
+    font-size: 30px;
     margin: auto;
-    width: 20rem;
-    height: 20rem;
+    width: 18rem;
+    height: 18rem;
     border-radius: 50%;
     border: 2px solid black;
     font-size: 5rem;
@@ -153,6 +150,20 @@ div#counter:hover {
 /* To do list*/
 
 /* Media Queries */
+#btnPlayPause {
+  text-align: center;
+  width: 100%;
+  margin-top: 5rem;
+  color: black;
+}
+
+#btnPlayPause:hover{
+  cursor: pointer;
+}
+
+.fa-cloud {
+  color: rgb(231, 226, 226);
+}
 
 @media (max-width: 650px){
   div#counter {
@@ -167,6 +178,13 @@ div#counter:hover {
   }
 
 }
+
+#weatherIcon {
+  width: 50px;
+  height: 50px;
+  border: none !important;
+}
+
 
 /* #todo-list-container {
     width: 20rem;

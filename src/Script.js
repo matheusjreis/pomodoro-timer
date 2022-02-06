@@ -1,15 +1,18 @@
+import { playClickSound } from "../helpers/Utils.js"
 import { Timer } from "./Timer.js";
 
 $( document ).ready(function() {
     jsLoading(true);
 
     document.getElementById("counter").addEventListener("click", startStudy, false);
+    document.getElementsByClassName("fa-pause")[0].addEventListener("click", pauseTimer, false);
+    document.getElementsByClassName("fa-play")[0].addEventListener("click", playTimer, false);
 
     readTextFile("../config/apiKeys.json", function(text){
         let data = JSON.parse(text);
         let latLong; 
 
-        setBackgroundImage(data[0].key_api_unsplash)
+        setBackground(data[0].key_api_unsplash)
         .then(()=> {            
             sleep(3);            
         }) 
@@ -34,6 +37,13 @@ async function setWeather(key_api_weather, coordinates){
         contentType: "application/x-www-form-urlencoded",                
         success: function(data){                        
             let degrees = data.main.temp.toString().split('.')[0];
+            let weatherIconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+            let weatherDescription = data.weather[0].description;
+
+            $('#weatherIcon').attr('src',weatherIconUrl);
+            $('#weatherIcon').attr('alt',weatherDescription);
+            $('#weatherIcon').attr('title',weatherDescription);
+            $('#weatherIcon').removeClass('d-none');
 
             $('#degrees').text(degrees + '°');
             $("#city-name").text(data.name);                                    
@@ -51,6 +61,38 @@ let getLocation = new Promise(function(resolve, reject) {
         }); 
     });
 });
+
+function pauseTimer(){    
+    playClickSound();
+
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Timer pausado',
+        showConfirmButton: false,
+        timer: 1500
+    });
+    Timer.isTimerPaused= true;
+
+    $('.fa-pause').addClass('d-none');
+    $('.fa-play').removeClass('d-none');
+}
+
+function playTimer(){    
+    playClickSound();
+
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Timer despausado',
+        showConfirmButton: false,
+        timer: 1500
+    });
+    Timer.isTimerPaused= false;
+
+    $('.fa-pause').removeClass('d-none');
+    $('.fa-play').addClass('d-none');
+}
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
@@ -70,27 +112,34 @@ function readTextFile(file, callback) {
     rawFile.send(null);
 }
 
-let setBackgroundImage = async function setBackground(key_api_unsplash){      
+function setBackground(key_api_unsplash){      
+    return new Promise((resolve, reject)=>{
+        let photoUrl = 'http://api.unsplash.com//search/photos?query=montain&client_id='+key_api_unsplash;                
 
-    let photoUrl = 'http://api.unsplash.com//search/photos?query=montain&client_id='+key_api_unsplash;                
+        $.get({
+            type        : 'GET',
+            url         :  photoUrl,                
+            success: function(data){ 
+                let indexPhoto = getRandomIntInclusive(0, data.results.length - 1);    
+                let valorTag = $('#instagramArtist').html();                                            
+                var img = new Image();
 
-    await $.get({
-        type        : 'GET',
-        url         :  photoUrl,                
-        success: function(data){            
-            let indexPhoto = getRandomIntInclusive(0, data.results.length - 1);    
-            let valorTag = $('#instagramArtist').html();            
+                img.onload = function() {
+                    $('body').css('background-image', 'url(' + data.results[indexPhoto].urls.full + ')');                                                     
+                    resolve();
+                }
+                img.src = data.results[indexPhoto].urls.full;
 
-            $('body').css('background-image', 'url(' + data.results[indexPhoto].urls.full + ')');                                                     
+                if (img.complete) 
+                    img.onload();
 
-            console.log('troca papel');
-            
-            if(data.results[indexPhoto].user.instagram_username == null)
-                $('#instagramArtist').html(valorTag+'  Autor Desconhecido');
-            else                            
-                $('#instagramArtist').html(valorTag+'  '+data.results[indexPhoto].user.instagram_username);
-        }
-    }); 
+                if(data.results[indexPhoto].user.instagram_username == null)
+                    $('#instagramArtist').html(valorTag+'  Autor Desconhecido');
+                else                            
+                    $('#instagramArtist').html(valorTag+'  '+data.results[indexPhoto].user.instagram_username);                                                    
+            } 
+        }); 
+    })    
 }
 
 function sleep(seconds) {
@@ -102,9 +151,11 @@ function sleep(seconds) {
     }while(currentDate - date < milisseconds)
 }
 
-function startStudy(){    
+function startStudy(){
+    playClickSound();
+    
     Swal.fire({
-        title: 'Deseja iniciar o contador?',
+        title: 'Deseja iniciar a contagem?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -116,13 +167,19 @@ function startStudy(){
             Timer.stopCounter();
             Timer.startCounter();
 
+            if(Timer.isTimerPaused){
+                playTimer();
+            }
+
             Swal.fire(
             'Contador iniciado!',
             'Bons estudos.',
             'success'
-            )
+            );
+
+            $('.fa-pause').removeClass('d-none');
         }
-    })
+    });
 }
 
 
@@ -130,11 +187,11 @@ function jsLoading(flag) {
     if(flag){
         $('#loading').removeClass('d-none');
         $('body').css('background-image' , 'none');
-        $('*').css('background-color' , 'black');
+        // $('*').css('background-color' , 'black');
         $('#counter').addClass('d-none');        
     } else {
         $('#loading').addClass('d-none');
         $('#counter').removeClass('d-none');
-        $('*').css('background-color' , '');
+        // $('*').css('background-color' , '');
     }    
 }
