@@ -1,0 +1,15 @@
+{
+    "name": "Pomodoro Timer",
+    "short_name": "Pomodoro Timer",
+    "start_url": "/?home=true",
+    "icons": [
+        {
+            "src":"icons/pomodoro-tomato.png",
+            "sizes":"512x512",
+            "type":"image/png",
+            "purpose":"maskable any"
+        }
+    ],
+    "display":"fullscreen",
+    "orientation":"portrait"
+}

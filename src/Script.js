@@ -3,7 +3,7 @@ import { Timer } from "./Timer.js";
 
 $( document ).ready(function() {
     jsLoading(true);
-
+    
     document.getElementById("counter").addEventListener("click", startStudy, false);
     document.getElementsByClassName("fa-pause")[0].addEventListener("click", pauseTimer, false);
     document.getElementsByClassName("fa-play")[0].addEventListener("click", playTimer, false);
@@ -17,9 +17,9 @@ $( document ).ready(function() {
             sleep(3);            
         }) 
         .then(()=>{                
-            getLocation.then((value) => {                                
+            getLocation.then((value) => {                        
                 setWeather(data[1].key_api_weather, value);
-            });            
+            });                        
         })         
         .then(()=> {
             jsLoading(false);
@@ -32,7 +32,8 @@ async function setWeather(key_api_weather, coordinates){
 
     await $.get({
         type        : 'GET',
-        url         :  weatherUrl, 
+        url         :  weatherUrl,
+        crossDomain: true, 
         dataType: "json", 
         contentType: "application/x-www-form-urlencoded",                
         success: function(data){                        
@@ -46,20 +47,27 @@ async function setWeather(key_api_weather, coordinates){
             $('#weatherIcon').removeClass('d-none');
 
             $('#degrees').text(degrees + '°');
-            $("#city-name").text(data.name);                                    
+            $("#city-name").text(data.name);               
         }
     }); 
 }
 
 
-let getLocation = new Promise(function(resolve, reject) {
-
+let getLocation = new Promise(function(resolve, reject) {    
+    
+    navigator.geolocation.watchPosition
     navigator.geolocation.getCurrentPosition((position) => {
         resolve({
             lat : position.coords.latitude,
             lon : position.coords.longitude,
-        }); 
-    });
+        });         
+    },(error) => {        
+        resolve({
+            lat : 0,
+            lon : 0,
+        });         
+    }
+    );
 });
 
 function pauseTimer(){    
@@ -118,7 +126,8 @@ function setBackground(key_api_unsplash){
 
         $.get({
             type        : 'GET',
-            url         :  photoUrl,                
+            url         :  photoUrl,     
+            crossDomain: true,           
             success: function(data){ 
                 let indexPhoto = getRandomIntInclusive(0, data.results.length - 1);    
                 let valorTag = $('#instagramArtist').html();                                            

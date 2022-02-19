@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
     <title id="favicon-title">Pomodoro</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
@@ -42,6 +43,11 @@
     <footer id="instagramArtist">               
         Photo by <i class="fab fa-instagram"></i>        
     </footer>
+    <script>
+        if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('/service-worker.js');
+        }
+    </script>
 </body>
 <script type="module" src="./src/Script.js"></script>        
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
