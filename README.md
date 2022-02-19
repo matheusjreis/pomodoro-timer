@@ -5,6 +5,8 @@
 - Consome uma API do unsplash para buscar imagens aleatórias para deixar a página com um ambiente mais harmonioso;
 
 
+## Abaixo estão algumas imagens do pwa em execução:
+
 <p align="center">
   <img src="./presentation-images/intialPage.jpeg">
 </p>
