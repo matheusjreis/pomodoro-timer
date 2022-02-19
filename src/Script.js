@@ -46,7 +46,7 @@ async function setWeather(key_api_weather, coordinates){
             $('#weatherIcon').removeClass('d-none');
 
             // $('#degrees').text(degrees + '°');
-            $("#city-name").text(data.name + "   ("+ degrees + '°)');               
+            $("#city-name").text(data.name + "("+ degrees + '°)');               
         }
     }); 
 }
