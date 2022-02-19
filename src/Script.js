@@ -29,7 +29,6 @@ $( document ).ready(function() {
 
 async function setWeather(key_api_weather, coordinates){    
     let weatherUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=`+key_api_weather;
-
     await $.get({
         type        : 'GET',
         url         :  weatherUrl,
@@ -46,16 +45,14 @@ async function setWeather(key_api_weather, coordinates){
             $('#weatherIcon').attr('title',weatherDescription);
             $('#weatherIcon').removeClass('d-none');
 
-            $('#degrees').text(degrees + '°');
-            $("#city-name").text(data.name);               
+            // $('#degrees').text(degrees + '°');
+            $("#city-name").text(data.name + "   ("+ degrees + '°)');               
         }
     }); 
 }
 
 
-let getLocation = new Promise(function(resolve, reject) {    
-    
-    navigator.geolocation.watchPosition
+let getLocation = new Promise(function(resolve, reject) {  
     navigator.geolocation.getCurrentPosition((position) => {
         resolve({
             lat : position.coords.latitude,
@@ -63,8 +60,8 @@ let getLocation = new Promise(function(resolve, reject) {
         });         
     },(error) => {        
         resolve({
-            lat : 0,
-            lon : 0,
+            lat : -18.913664,
+            lon : -48.266560,
         });         
     }
     );

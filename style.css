@@ -15,38 +15,9 @@
 }
 
 body {
-    min-height: 100vh;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center;  */
-    /* background-image: url("./images/forest_rain.jpg"); */
-    /* background-image: url("https://images.unsplash.com/photo-1640628423316-b9238484f131?crop=entropy&cs=srgb&fm=jpg&ixid=Mnw5ODI5M3wwfDF8cmFuZG9tfHx8fHx8fHx8MTY0MjU0NjcwNQ&ixlib=rb-1.2.1&q=85"); */
+    min-height: 100vh;    
     background-size: cover;    
 }
-
-/* section#photo-container {
-    width: 40rem;
-    height: 45rem;
-    border-radius:10%;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
-/* div#climate {
-    margin-bottom: 30rem;
-    width: 20rem;
-    height: 12rem;
-    border-radius: 5%;
-
-    font-size: 5rem;
-    position: absolute;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
 div#counter {
     color: black;
@@ -178,15 +149,21 @@ div#counter:hover {
   }
 
   #weather {
-    margin: auto;
+    margin: auto;    
   }
 
   #weatherIcon {
     width: 50px;
     height: 50px;
     border: none !important;
-    margin: -12px;
+    margin-left: -18px;
   }
+
+  #city-name{
+    padding-top: 2.5rem;
+    margin-left: -3rem;
+  }
+
 }
 
 #weatherIcon {
@@ -194,41 +171,3 @@ div#counter:hover {
   height: 50px;
   border: none !important;
 }
-
-
-/* #todo-list-container {
-    width: 20rem;
-    height: 40rem; 
-    background-color: #424242;  
-
-    bottom: 1rem;
-    right: 1rem;
-    position: fixed;
-
-    border-radius:0.8rem;
-}
-
-#item-adder {
-    width: 80%;
-    margin: 0.8rem 0.2rem 0.8rem 0.8rem;
-
-    border-radius: 0.4rem;
-
-    background-color: #757575;
-
-    text-align: center;
-}
-
-#adder-button {
-    width: 1.5rem;
-
-    margin-left: 0.2rem;
-
-    border-radius: 0.5rem;
-
-    background-color: #757575;
-}
-
-#adder-button:hover {
-    cursor: pointer;
-} */
