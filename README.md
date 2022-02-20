@@ -7,14 +7,14 @@
 - Abaixo estão algumas imagens do pwa em execução:
 
 <p align="center">
-  <img src="./presentation-images/intialPage.jpeg">
+  <img src="./presentation-images/intialPage.jpeg" tyle="width=360;height=740;">
 </p>
 
 
 <p align="center">
-  <img src="./presentation-images/timerStarting.jpeg">
+  <img src="./presentation-images/timerStarting.jpeg" style="width=360;height=740">
 </p>
 
 <p align="center">
-  <img src="./presentation-images/timerWorking.jpeg">
+  <img src="./presentation-images/timerWorking.jpeg" tyle="width=360;height=740;">
 </p>
