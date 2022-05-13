@@ -1,4 +1,4 @@
-import { formatTime, playNotificationSound } from "../helpers/Utils.js"
+import { formatTime, playNotificationSound, showNotification } from "../helpers/Utils.js"
 
 const Timer = {
     isRestTime: false,
@@ -33,7 +33,8 @@ const Timer = {
         
 
         if(Timer.currentTime == 0 && Timer.currentTimeMinutes == 0){
-            playNotificationSound();  
+            playNotificationSound(); 
+            showNotification('Hora de descansar'); 
 
             if(!this.isRestTime){
                 Swal.fire({
@@ -49,6 +50,7 @@ const Timer = {
 
                 this.isRestTime = true;
             } else {
+                showNotification('De volta aos estudos');
                 Swal.fire({
                     position: 'center',
                     icon: 'success',

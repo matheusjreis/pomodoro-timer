@@ -15,4 +15,16 @@ function playClickSound() {
     audio.play();
 }
 
-export { formatTime, playNotificationSound, playClickSound };
+function showNotification(msg){
+    const notification = new Notification('Pomodoro Timer', {
+        body: msg,
+        icon: '../icons/pomodoro-tomato.png'
+    });
+
+    // close the notification after 10 seconds
+    setTimeout(() => {
+        notification.close();
+    }, 10 * 1000);
+}
+
+export { formatTime, playNotificationSound, playClickSound, showNotification };

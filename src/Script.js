@@ -4,6 +4,8 @@ import { Timer } from "./Timer.js";
 $( document ).ready(function() {
     jsLoading(true);
     
+    Notification.requestPermission();
+
     document.getElementById("counter").addEventListener("click", startStudy, false);
     document.getElementsByClassName("fa-pause")[0].addEventListener("click", pauseTimer, false);
     document.getElementsByClassName("fa-play")[0].addEventListener("click", playTimer, false);
