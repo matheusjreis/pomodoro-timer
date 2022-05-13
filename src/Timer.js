@@ -29,9 +29,6 @@ const Timer = {
             Timer.currentTime--; 
         }        
 
-        console.log(Timer.isTimerPaused)
-        
-
         if(Timer.currentTime == 0 && Timer.currentTimeMinutes == 0){
             playNotificationSound(); 
             showNotification('Hora de descansar'); 
