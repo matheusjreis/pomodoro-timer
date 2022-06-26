@@ -15,7 +15,7 @@ function playClickSound() {
     audio.play();
 }
 
-function showNotification(msg){
+function showNotification(msg) {
     const notification = new Notification('Pomodoro Timer', {
         body: msg,
         icon: '../icons/pomodoro-tomato.png'

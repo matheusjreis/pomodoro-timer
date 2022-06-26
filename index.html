@@ -15,11 +15,12 @@
 </head>
 <body class="container-fluid">
     <header class="row justify-content-start">        
-        <div class="col-1 ml-10" id="weather">
-            <div class="row temperature" id="city-name">                
-            </div>
-            <img id="weatherIcon" class="d-none">
-            <div class="row temperature ml-2" id="degrees">                
+        <div class="col-sm-12" id="weather">
+            <div class="temperature" id="city-name">                
+            </div>            
+
+            <div class="temperature" id="degrees">
+                <img class="mx-auto d-none" id="weatherIcon">
             </div>
         </div>
         <div class="col-12" id="title">
@@ -43,12 +44,12 @@
     <footer id="instagramArtist">               
         Photo by <i class="fab fa-instagram"></i>        
     </footer>
-    <script>
-        if('serviceWorker' in navigator){
-            navigator.serviceWorker.register('/service-worker.js');
-        }
-    </script>
 </body>
+<script>
+    if('serviceWorker' in navigator){
+        navigator.serviceWorker.register('/service-worker.js');
+    }
+</script>
 <script type="module" src="./src/Script.js"></script>        
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

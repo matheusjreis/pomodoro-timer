@@ -6,30 +6,30 @@ const Timer = {
     currentTime: 0,
     interval: null,
     currentTimeMinutes: 0,
-    startCounter(){
+    startCounter() {
         Timer.currentTime = 60
         Timer.currentTimeMinutes = 24        
         Timer.interval = setInterval(Timer.countdown,1000)        
-    },stopCounter(){
+    },stopCounter() {
         Timer.currentTime = 0
         clearInterval(Timer.interval)
-    },countdown(){
+    },countdown() {
         let minutes;
         let seconds;
 
-        if(Timer.isTimerPaused){
-            if(Timer.currentTime == 0){
+        if(Timer.isTimerPaused) {
+            if(Timer.currentTime == 0) {
                 Timer.currentTime = 60;
             }        
-        }else{
-            if(Timer.currentTime == 0){
+        } else {
+            if(Timer.currentTime == 0) {
                 Timer.currentTime = 60;
                 Timer.currentTimeMinutes--;
-            }        
+            }
             Timer.currentTime--; 
-        }        
+        }
 
-        if(Timer.currentTime == 0 && Timer.currentTimeMinutes == 0){
+        if(Timer.currentTime == 0 && Timer.currentTimeMinutes == 0) {
             playNotificationSound(); 
             showNotification('Hora de descansar'); 
 

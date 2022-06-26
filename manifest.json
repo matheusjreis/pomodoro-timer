@@ -2,6 +2,8 @@
     "name": "Pomodoro Timer",
     "short_name": "Pomodoro Timer",
     "start_url": "/?home=true",
+    "background_color": "#FFFFFF",
+    "description":"Um timer para auxiliar nos afazeres",
     "icons": [
         {
             "src":"icons/pomodoro-tomato.png",

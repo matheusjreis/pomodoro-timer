@@ -1,61 +1,61 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;    
-    font-family: 'Hahmlet', serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Hahmlet', serif;
 }
 
 #title {
-    text-align: center;
-    font-size: 50px;    
+  text-align: center;
+  font-size: 50px;
 }
 
 .top-buffer {
-    margin-top: 5rem;
+  margin-top: 5rem;
 }
 
 body {
-    min-height: 100vh;    
-    background-size: cover;    
+  min-height: 100vh;
+  background-size: cover;
 }
 
 div#counter {
-    color: black;
-    background-color: rgba(0, 0, 0, 0.1);
+  color: black;
+  background-color: rgba(0, 0, 0, 0.1);
 
-    font-size: 30px;
-    margin: auto;
-    width: 18rem;
-    height: 18rem;
-    border-radius: 50%;
-    border: 2px solid black;
-    font-size: 5rem;
+  font-size: 30px;
+  margin: auto;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 50%;
+  border: 2px solid black;
+  font-size: 5rem;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 
 div#counter:hover {
-    background: rgba(0, 0, 0, 0.3);
-    cursor: pointer;
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 /* Footer */
 
 #instagramArtist {
-    display: inline;
-    position: fixed;    
-    bottom: 0;
-    left: 2em;
-    color: white;
+  display: inline;
+  position: fixed;
+  bottom: 0;
+  left: 2em;
+  color: white;
 }
 
 
 .swal-modal {
-    background-color: rgb(138, 43, 43);
-    /* border: 3px solid white; */
+  background-color: rgb(138, 43, 43);
+  /* border: 3px solid white; */
 }
 
 
@@ -63,61 +63,66 @@ div#counter:hover {
 /* Loading */
 
 @keyframes ldio-05y9ovx8d807 {
-    0%, 100% {
-      animation-timing-function: cubic-bezier(0.45,0,0.9,0.55)
-    }
-    0% {
-      transform: translate(0,0)
-    }
-    50% {
-      transform: translate(0,146.34px);
-      animation-timing-function: cubic-bezier(0,0.45,0.55,0.9);
-    }
-    100% {
-      transform: translate(0,0);
-    }
-  }
-  
-  .ldio-05y9ovx8d807 div {
-    position: absolute;
-    width: 70.46px;
-    height: 70.46px;
-    border-radius: 50%;
-    background: #e15b64 !important;
-    left: 100.27px;
-    top: 27.1px;
-    animation: ldio-05y9ovx8d807 1.282051282051282s linear infinite;
-  }
-  .loadingio-spinner-ball-pgemw8lti8 {
-    width: 271px;
-    height: 271px;
-    display: inline-block;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0);
 
-    margin: auto;
+  0%,
+  100% {
+    animation-timing-function: cubic-bezier(0.45, 0, 0.9, 0.55)
   }
 
-  .ldio-05y9ovx8d807 {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform: translateZ(0) scale(1);
-    backface-visibility: hidden;
-    transform-origin: 0 0; /* see note above */        
+  0% {
+    transform: translate(0, 0)
   }
 
-  .ldio-05y9ovx8d807 div { box-sizing: content-box; }
-
-  #weather :nth-child(n){
-    text-align: center;    
+  50% {
+    transform: translate(0, 146.34px);
+    animation-timing-function: cubic-bezier(0, 0.45, 0.55, 0.9);
   }
 
-  .temperature {
-    text-align: center;    
-    font-size: 18px;
-    font-weight: 500;
+  100% {
+    transform: translate(0, 0);
   }
+}
+
+.ldio-05y9ovx8d807 div {
+  position: absolute;
+  width: 70.46px;
+  height: 70.46px;
+  border-radius: 50%;
+  background: #e15b64 !important;
+  left: 100.27px;
+  top: 27.1px;
+  animation: ldio-05y9ovx8d807 1.282051282051282s linear infinite;
+}
+
+.loadingio-spinner-ball-pgemw8lti8 {
+  width: 271px;
+  height: 271px;
+  display: inline-block;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0);
+
+  margin: auto;
+}
+
+.ldio-05y9ovx8d807 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0;
+  /* see note above */
+}
+
+.ldio-05y9ovx8d807 div {
+  box-sizing: content-box;
+}
+
+.temperature {
+  text-align: center;
+  font-size: 18px;
+}
+
 /* To do list*/
 
 /* Media Queries */
@@ -128,7 +133,7 @@ div#counter:hover {
   color: black;
 }
 
-#btnPlayPause:hover{
+#btnPlayPause:hover {
   cursor: pointer;
 }
 
@@ -136,7 +141,7 @@ div#counter:hover {
   color: rgb(231, 226, 226);
 }
 
-@media (max-width: 650px){
+@media (max-width: 650px) {
   div#counter {
     width: 10rem;
     height: 10rem;
@@ -145,28 +150,17 @@ div#counter:hover {
   }
 
   #title {
-    font-size: 30px;   
-  }
-
-  #weather {
-    margin: auto;    
+    font-size: 30px;
   }
 
   #weatherIcon {
     width: 50px;
     height: 50px;
-    border: none !important;
-    margin-left: -18px;
   }
-
-  #city-name{
-    padding-top: 2.5rem;
-    margin-left: -3rem;
-  }
+  
 }
 
 #weatherIcon {
   width: 50px;
   height: 50px;
-  border: none !important;
 }
